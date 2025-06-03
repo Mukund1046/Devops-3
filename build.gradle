@@ -1,18 +1,41 @@
+ //plugins {
+   //  id 'application'
+     //}
+// repositories {
+    // mavenCentral()
+  //   }
+
+// dependencies {
+     // testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+   //  }
+
+// application {
+   //  mainClass = 'com.example.Main'
+    // }
+ // tasks.register('copyWebsite', Copy) {
+    // from 'src/main/resources/website'
+    // into 'docs'
+ // This task copies the website files to the docs directory}
+     // }
  plugins {
-     id 'application'
-     }
- repositories {
-     mavenCentral()
-     }
+      id 'java'
+      id 'application'
+      }
 
-dependencies {
-     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-     }
+  application {
+      mainClass = 'com.example.Main'
+      }
+  jar {
+      manifest {
+          attributes 'Main-Class': 'com.example.Main' // This tells Java where to start execution
+          }
+      }
+ dependencies {
+      testImplementation 'org.seleniumhq.selenium:selenium-java:4.28.1' // use the latest stable
+     version
+      testImplementation 'org.testng:testng:7.4.0' // use the latest stable version
+      }
 
-application {
-     mainClass = 'com.example.Main'
-     }
- tasks.register('copyWebsite', Copy) {
-     from 'src/main/resources/website'
-     into 'docs'
- }
+  test {
+     useTestNG()
+      }
